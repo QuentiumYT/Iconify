@@ -1,0 +1,21 @@
+{
+    "name": "iconify",
+    "description": "Download premium SVG icons and stickers from popular icon websites.",
+    "author": "Quentin Lienhardt",
+    "license": "MIT",
+    "repository": "https://github.com/QuentiumYT/Iconify",
+    "private": true,
+    "dependencies": {
+        "jquery": "^3.7.1",
+        "node-snackbar": "^0.1.16"
+    },
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development vite build",
+        "build": "cross-env NODE_ENV=production vite build",
+        "watch": "cross-env NODE_ENV=development vite build --watch"
+    },
+    "devDependencies": {
+        "vite": "^4.4.9",
+        "vite-plugin-static-copy": "^0.17.0"
+    }
+}
