@@ -1,30 +1,30 @@
 {
-  "name"            : "Iconify",
-  "version"         : "1.0.2",
-  "description"     : "Upgrade your designs with our browser extension! Download premium SVG icons and stickers.",
-  "manifest_version": 3,
-  "icons": {
-    "16"  : "./icons/16.png",
-    "32"  : "./icons/32.png",
-    "48"  : "./icons/48.png",
-    "128" : "./icons/128.png"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://www.flaticon.com/*",
-        "https://iconscout.com/*",
-        "https://icons8.com/*",
-        "https://fontawesome.com/*"
-      ],
-      "js": [
-        "./scripts/iconify-jquery.js",
-        "./scripts/iconify-assets.js",
-        "./scripts/iconify-snackbar.js",
-        "./scripts/iconify-main.js"
-      ],
-      "run_at"    : "document_idle",
-      "all_frames": true
-    }
-  ]
+    "name": "Iconify",
+    "version": "1.1.0",
+    "description": "Download premium SVG icons and stickers from popular icon websites.",
+    "manifest_version": 3,
+    "icons": {
+        "16": "icons/16.png",
+        "32": "icons/32.png",
+        "48": "icons/48.png",
+        "128": "icons/128.png"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "assets/jquery.min.js",
+                "assets/snackbar.min.js",
+                "assets/assets.js",
+                "assets/main.js"
+            ],
+            "run_at": "document_idle",
+            "all_frames": true,
+            "matches": [
+                "https://www.flaticon.com/*",
+                "https://iconscout.com/*",
+                "https://icons8.com/*",
+                "https://fontawesome.com/*"
+            ]
+        }
+    ]
 }
