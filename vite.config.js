@@ -17,28 +17,28 @@ export default {
             output: {
                 entryFileNames: 'assets/[name].js',
             },
-            plugins: [
-                viteStaticCopy({
-                    targets: [
-                        {
-                            src: './extension/manifest.json',
-                            dest: '',
-                        },
-                        {
-                            src: './extension/icons/*',
-                            dest: 'icons/',
-                        },
-                        {
-                            src: 'node_modules/jquery/dist/jquery.min.js',
-                            dest: 'assets/',
-                        },
-                        {
-                            src: 'node_modules/node-snackbar/dist/snackbar.min.js',
-                            dest: 'assets/',
-                        }
-                    ]
-                })
-            ],
         },
     },
+    plugins: [
+        viteStaticCopy({
+            targets: [
+                {
+                    src: './extension/manifest.json',
+                    dest: '',
+                },
+                {
+                    src: './extension/icons/*',
+                    dest: 'icons/',
+                },
+                {
+                    src: 'node_modules/jquery/dist/jquery.min.js',
+                    dest: 'assets/',
+                },
+                {
+                    src: 'node_modules/node-snackbar/dist/snackbar.min.js',
+                    dest: 'assets/',
+                },
+            ]
+        })
+    ],
 };
