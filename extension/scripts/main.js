@@ -310,6 +310,8 @@ $(document).on("click", ".btn-svg, .copysvg--button", function (e) {
         let clickedButtonElement = $(this);
 
         $(".modal-download-detail__content").remove();
+        $(".modal-copy-svg-from-search-list-not-premium-user").remove();
+        $("body").removeClass("overflow-hidden");
         $(".detail__editor").addClass("hide");
         $(".detail__top").removeClass("hide");
         clickedButtonElement.html(LOADING_ICON);
