@@ -16,7 +16,7 @@
         "watch": "cross-env NODE_ENV=development vite build --watch"
     },
     "devDependencies": {
-        "vite": "^5.0.12",
-        "vite-plugin-static-copy": "^1.0.1"
+        "vite": "^5.2.8",
+        "vite-plugin-static-copy": "^1.0.2"
     }
 }
