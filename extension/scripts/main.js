@@ -68,6 +68,19 @@ const downloadIcon = function (text = "", downloadAbleName = "", extension = "sv
     document.body.removeChild(newAnchorElement);
 };
 
+async function downloadPNG(imageSrc, name) {
+    const image = await fetch(imageSrc);
+    const imageBlog = await image.blob();
+    const imageURL = URL.createObjectURL(imageBlog);
+
+    const link = document.createElement("a");
+    link.href = imageURL;
+    link.download = name;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 // Create  download json
 const downloadJson = function (data = {}, downloadAbleName = "", extension = "json") {
     let jsonString = JSON.stringify(data, null, 2);
@@ -81,7 +94,7 @@ const downloadJson = function (data = {}, downloadAbleName = "", extension = "js
     URL.revokeObjectURL(url);
 };
 
-//Copy SVG to clipboard
+// Copy SVG to clipboard
 const copyToClipBoard = function (text, clickedButtonElement, replacer) {
     const tempTextarea = $("<textarea>");
     tempTextarea.val(text);
@@ -91,6 +104,18 @@ const copyToClipBoard = function (text, clickedButtonElement, replacer) {
     tempTextarea.remove();
     Snackbar.show({ text: "SVG Copied to clipboard." });
     clickedButtonElement.html(replacer);
+};
+
+// GET UUID
+const getUUIDFroIconScout = function () {
+    const se = localStorage.getItem("__user_traits");
+    if (se) {
+        const userData = JSON.parse(se);
+        if (userData && userData.uuid) {
+            return userData.uuid;
+        }
+    }
+    return 0;
 };
 
 // Check user logged in state
@@ -144,9 +169,19 @@ window.addEventListener("load", function () {
         // Replace the download button with SVG download button in Iconscout
         let iconScoutPremiumDownloadButton =
             $(`<button type="button" class="btn btn-primary has-icon w-100 btn-lg download-icon">Download</button>`).text("Download").removeAttr("href");
+
         const button = $("button[class*='btn'][class*='dropdown-toggle'][class*='btn-primary'][class*='w-100'][class*='btn-lg'][class*='has-icon'][class*='dropdown-toggle-no-caret']");
+        const button2 = $("#modalItemPreview main").find("button[class='btn btn-primary has-icon w-100 btn-lg']");
         button.next("ul").remove();
         button.replaceWith(iconScoutPremiumDownloadButton);
+        if (button) {
+            button.replaceWith(iconScoutPremiumDownloadButton);
+
+        }
+        else {
+            button2.replaceWith(iconScoutPremiumDownloadButton);
+
+        }
     });
 
     // Options for the observer (which mutations to observe)
@@ -230,7 +265,7 @@ window.addEventListener("load", function () {
         }
     });
     initFontAwesome();
-    $(document).click();
+    $(document).trigger('click');
 
     if (window.location.href.startsWith("https://fontawesome.com/")) {
         initButtonFae();
@@ -251,10 +286,14 @@ $(document).on("click", ".download-icon, .copyToClipboardIScout", function (e) {
     }
 
     let product_id = 0;
+    let product_url = 0;
     let clickedButtonElement = $(this);
     clickedButtonElement.html(LOADING_ICON);
     $('meta[data-n-head="ssr"][property="og:product_id"]').each(function () {
         product_id = $(this).attr("content");
+    });
+    $('meta[data-n-head="ssr"][property="product:product_link"]').each(function () {
+        product_url = $(this).attr("content");
     });
     if (product_id) {
         let propColorEditor = $(document).find("#pdpColorEditor-" + product_id);
@@ -286,6 +325,26 @@ $(document).on("click", ".download-icon, .copyToClipboardIScout", function (e) {
         else {
             Snackbar.show({ text: "Unsupported format or icon !" });
             clickedButtonElement.html("Download");
+            //The Icon is 3d
+            let uuid = getUUIDFroIconScout();
+            try {
+                if (uuid && product_url) {
+                    const parts = product_url.split("/");
+                    const p_id = parts[parts.length - 1];
+                    if (p_id) {
+                        fetch(`https://iconscout.com/api/v2/new-items/${p_id}?extra_fields=true&items=true&token=${uuid}`).then(response => response.json()).then(data => {
+                            if (data) {
+                                downloadPNG(data.response.item.urls.original, product_id + ".png").then(() => {
+                                    clickedButtonElement.html("Download");
+                                });
+                            }
+                        });
+                    }
+                }
+            } catch (e) {
+                Snackbar.show({ text: "Something went wrong while downloading the icon, Hot reload the page." });
+                clickedButtonElement.html("Download");
+            }
         }
     }
 });
