@@ -1,6 +1,6 @@
 {
     "name": "Iconify",
-    "version": "2.0.5",
+    "version": "2.0.8",
     "description": "Download premium SVG icons and stickers from popular icon websites.",
     "manifest_version": 3,
     "icons": {
