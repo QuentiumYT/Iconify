@@ -277,7 +277,11 @@ window.addEventListener("load", function () {
                 });
             }
         }
+        catch (e) {
+            Snackbar.show({ text: "Something went wrong while downloading the icon, Hot reload the page." });
+        }
     });
+
     initFontAwesome();
     $(document).trigger('click');
 
