@@ -1,10 +1,10 @@
 <div align = "center">
 
-![Logo](https://kyutefox.com/resources/assets/img/logo.png)
+<img src="https://cdn.kyutefox.com/Kyutefox/svg/Fox.svg" alt="Logo" height="150px" width="150px">
 
 <h1>👋 Welcome to Iconify</h1>
 
-The Ultimate Browser Extension for **QUALITY** SVG Icons
+<p>The Ultimate Browser Extension for **QUALITY** SVG Icons</p>
 
 <p align="center">
   <a href="https://kyutefox.com/products/iconify-browser-extension">
@@ -16,12 +16,12 @@ The Ultimate Browser Extension for **QUALITY** SVG Icons
   <a href="https://kyutefox.com/">
     <img src="https://img.shields.io/badge/Home-Page-orange.svg" alt="Home Page">
   </a>
-  <a href="https://github.com/razoo-choudhary">
+  <a href="https://github.com/MrJukeman">
     <img src="https://img.shields.io/badge/Author-Profile-purple.svg" alt="Author Profile">
   </a>
 </p>
 
-![image](https://raw.githubusercontent.com/Kyutefox/Iconify/main/assets/web.png)
+![image](https://cdn.kyutefox.com/Projects/kyuteFoxHomePage.png)
 
 </div>
 
@@ -189,7 +189,7 @@ In conclusion, Iconify is a safe and secure extension that provides premium SVG 
 
 ## 📃 Changelog
 
-- Full Changelog can be found on the Website [here](https://kyutefox.com/changelog/iconify-browser-extension) or in the [Changelog file](https://github.com/Zemerik/Iconify/blob/main/CHANGELOG.md)
+- Full Changelog can be found on the Website [here](https://kyutefox.com/changelog/iconify-browser-extension) or in the [Changelog file](https://github.com/Kyutefox/Iconify/blob/main/CHANGELOG.md)
 
 ## 🔗 Useful Links
 

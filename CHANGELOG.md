@@ -4,7 +4,28 @@
 
 - Full Changelog can be found on the Website [here](https://kyutefox.com/changelog/iconify-browser-extension). 
 
-### August 30, 2024 - 1.0.2 (Update)
+### July 01, 2025 - 1.0.8 (Update)
+> - Update:
+
+    - Fixed Icons8 Not Downloading SVG [ both free and premium ]
+
+
+### December 03, 2024 - 1.0.7 (Update)
+> - Update:
+
+    - Updated with new bypass method for IconScout
+    - Fixed IconScout Not Downloading SVG [ both free and premium ]
+    - Fixed 3D Icon Download in IconScout
+    - Fixed IconScout Not Download Lottie [ both free and premium ]
+
+### August 07, 2024 - 1.0.6 (Update)
+
+> - Update:
+
+    - Fixed 0 Byte in IconScout
+
+
+### August 30, 2023 - 1.0.2 (Update)
 
 > - New:
 
@@ -14,7 +35,7 @@
 
     - Generate Premium Font Awesome CDN and use icon directly
 
-### August 09, 2024, 1.0.1 (Update & Fixes)
+### August 09, 2023, 1.0.1 (Update & Fixes)
 
 > - New:
 
